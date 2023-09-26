@@ -6,7 +6,7 @@ CREATE TABLE users (
 
 CREATE TABLE classes (
     id SERIAL PRIMARY KEY,
-    class_name TEXT NOT NULL UNIQUE
+    class_name TEXT NOT NULL
 );
 
 CREATE TABLE charecters (
@@ -15,3 +15,19 @@ CREATE TABLE charecters (
     class_id INTEGER REFERENCES classes(id),
     character_level INTEGER DEFAULT 0
 );
+
+INSERT INTO classes(class_name)
+VALUES
+('BARBARIAN'),
+('BARD'),
+('CLERIC'),
+('DRUID'),
+('FIGHTER'),
+('MONK'),
+('PALADIN'),
+('RANGER'),
+('ROGUE'),
+('SORCERER'),
+('WARLOCK'),
+('WIZARD');
+
