@@ -1,7 +1,9 @@
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     player_name TEXT NOT NULL UNIQUE,
-    number_characters INTEGER NOT NULL DEFAULT 0
+    number_characters INTEGER NOT NULL DEFAULT 0,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL
 );
 
 CREATE TABLE classes (
