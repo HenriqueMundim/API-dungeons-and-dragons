@@ -11,11 +11,12 @@ CREATE TABLE classes (
     class_name TEXT NOT NULL
 );
 
-CREATE TABLE charecters (
+CREATE TABLE charActers (
     id SERIAL PRIMARY KEY,
     character_name TEXT NOT NULL UNIQUE,
     class_id INTEGER REFERENCES classes(id),
-    character_level INTEGER DEFAULT 0
+    character_level INTEGER DEFAULT 0,
+    user_id INTEGER REFERENCES users(id)
 );
 
 INSERT INTO classes(class_name)

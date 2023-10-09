@@ -7,6 +7,7 @@ const deleteChar = async (req, res) => {
     } = req.body
 
     const db = JSON.parse(await fs.readFile('./src/database/database.json'))
+    
 }
 
 

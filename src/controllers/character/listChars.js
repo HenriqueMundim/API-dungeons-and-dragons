@@ -1,9 +1,11 @@
-const fs = require('fs/promises')
+const pool = require('../../database/conection')
 
 const listCharacters = async (req, res) => {
+    const { id } = req.user
     try {
-        const charParse = JSON.parse(await fs.readFile('./src/database/database.json'));
-        return res.status(200).json(charParse)
+        const querycharacters = `SELECT * FROM characters WHERE user_id = $1`
+        const characters = await pool.query(querycharacters, [id])
+        return res.status(200).json(characters)
     } catch {
         return res.status(500).json({ message: "Internal error."})
     }
