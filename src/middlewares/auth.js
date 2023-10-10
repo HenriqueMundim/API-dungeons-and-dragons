@@ -1,3 +1,4 @@
+const pool = require('../database/conection')
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
@@ -22,6 +23,7 @@ const authUser = async (req, res, next) => {
         req.user = rows[0]
         next()
     } catch (error) {
+        console.log(error)
         return res.status(500).json({ message: "Internal error" })
     }
 }

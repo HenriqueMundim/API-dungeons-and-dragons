@@ -11,7 +11,7 @@ CREATE TABLE classes (
     class_name TEXT NOT NULL
 );
 
-CREATE TABLE charActers (
+CREATE TABLE characters (
     id SERIAL PRIMARY KEY,
     character_name TEXT NOT NULL UNIQUE,
     class_id INTEGER REFERENCES classes(id),

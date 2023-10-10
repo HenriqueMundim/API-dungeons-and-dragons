@@ -1,7 +1,7 @@
 const pool = require('../../database/conection')
 
 const createCharacter = async (req, res) => {
-    const { character_name, class_id, character_leveL} = req.body
+    const { character_name, class_id, character_level} = req.body
     const { id } = req.user
 
     try {
@@ -13,11 +13,11 @@ const createCharacter = async (req, res) => {
         INSERT INTO characters
         (character_name, class_id, character_level, user_id)
         VALUES
-        ($1, $2, $3, $4)`
+        ($1, $2, $3, $4) RETURNNING *`
         const newCharacter = await pool.query(queryNewCharacter, [character_name, class_id, character_level, id])
-        
-        return res.status(201).json(newCharacter)
+        return res.status(201).json(newCharacter.rows[0])
     } catch (error) {
+        console.log(error)
         return res.status(500).json({ message: "Internal error" })
     }
 }
