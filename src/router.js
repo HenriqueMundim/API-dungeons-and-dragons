@@ -15,7 +15,7 @@ router.use(authUser)
 
 router.get('/character', listCharacters);
 router.post('/character', createCharacter);
-router.put('/character', updateChar)
+router.put('/character/:id', updateChar)
 router.delete('/character', deleteChar)
 
 module.exports = router;
